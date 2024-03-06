@@ -12,8 +12,8 @@ const UserPlaces = () => {
         "https://www.esrtreit.com/wp-content/uploads/16A-ESB-2-768x512.jpg",
       address: "20 W 34th St, New York, NY 10001",
       location: {
-        lat: 40.7484405,
-        lng: -73.9856644,
+        lat: 40.7484,
+        lng: -73.9857,
       },
       creator: "u1",
     },
