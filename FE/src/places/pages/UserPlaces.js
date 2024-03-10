@@ -19,7 +19,7 @@ const UserPlaces = () => {
     },
     {
       id: "p2",
-      title: "Empire State Building",
+      title: "Empire State Building 2",
       description: "One of the most famous sky scrappers in the world",
       imageUrl:
         "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/36/48/20.jpg",
@@ -33,7 +33,7 @@ const UserPlaces = () => {
   ];
 
   const userId = useParams().userId;
-  const loadPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
+  const loadPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
   return <PlaceList items={loadPlaces} />;
 };
 
