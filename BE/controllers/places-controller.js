@@ -114,7 +114,9 @@ const createPlace = async (req, res, next) => {
 const updatePlace = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    throw new HttpError("Invalid inputs passed, please check your data.", 422);
+    return next(
+      new HttpError("Invalid inputs passed, please check your data.", 422)
+    );
   }
 
   const { title, description } = req.body;
@@ -160,7 +162,7 @@ const deletePlace = async (req, res, next) => {
   }
 
   if (!place) {
-    return next(new HttpError('Could not find a place for that id', 404));
+    return next(new HttpError("Could not find a place for that id", 404));
   }
 
   res.status(200).json({ message: "Deleted place." });
