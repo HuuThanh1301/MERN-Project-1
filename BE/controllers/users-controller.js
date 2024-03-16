@@ -3,15 +3,6 @@ const { validationResult } = require("express-validator");
 const HttpError = require("../models/http-error");
 const User = require("../models/user");
 
-const DUMMY_USERS = [
-  {
-    id: "u1",
-    name: "Huu Thanh",
-    email: "test@test.com",
-    password: "testers",
-  },
-];
-
 const getUsers = async (req, res, next) => {
   let users;
   try {
@@ -34,7 +25,7 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password, places } = req.body;
+  const { name, email, password } = req.body;
 
   let existingUser;
 
@@ -60,7 +51,7 @@ const signup = async (req, res, next) => {
     image:
       "https://assets.simpleviewinc.com/simpleview/image/upload/crm/newyorkstate/GettyImages-486334510_CC36FC20-0DCE-7408-77C72CD93ED4A476-cc36f9e70fc9b45_cc36fc73-07dd-b6b3-09b619cd4694393e.jpg",
     password,
-    places,
+    places: [],
   });
 
   try {
