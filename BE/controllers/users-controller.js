@@ -60,9 +60,8 @@ const signup = async (req, res, next) => {
   const createdUser = new User({
     name,
     email,
-    password,
-    image: req.file.path,
     password: hashedPassword,
+    image: req.file.path,
     places: [],
   });
 
@@ -107,7 +106,7 @@ const login = async (req, res, next) => {
   if (!existingUser) {
     const error = new HttpError(
       "Invalid credentials, could not log you in",
-      401
+      403
     );
     return next(error);
   }
@@ -126,7 +125,7 @@ const login = async (req, res, next) => {
   if (!isValidPassword) {
     const error = new HttpError(
       "Invalid credentials, could not log you in.",
-      401
+      403
     );
     return next(error);
   }
