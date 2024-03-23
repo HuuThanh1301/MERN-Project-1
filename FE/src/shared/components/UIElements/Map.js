@@ -8,8 +8,7 @@ const Map = (props) => {
 
   const { center, zoom } = props;
 
-  const APIKEY =
-    "pk.eyJ1Ijoibmh0aGFuaGRuOTUiLCJhIjoiY2x0ZXgxeTZrMGx2bjJqbzFnMTd0bzBnZyJ9.3Ja0qZgrqu8BipSj0Mit7g";
+  const APIKEY = process.env.REACT_APP_MAP_API_KEY;
 
   useEffect(() => {
     mapboxgl.accessToken = APIKEY;
@@ -20,7 +19,7 @@ const Map = (props) => {
       zoom: zoom,
     });
     // new mapboxgl.Marker().setLngLat(center).addTo(map);
-  }, [center, zoom]);
+  }, [center, zoom, APIKEY]);
 
   return (
     <div
